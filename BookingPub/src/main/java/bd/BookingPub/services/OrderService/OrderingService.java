@@ -35,7 +35,7 @@ public class OrderingService implements InterfaceOrderingService {
             for (TableList t :
                     tables)
             {
-                if(placeNum<t.getPlaceNum()&&t.getStatus().equals("Unbooked"))
+                if(placeNum<=t.getPlaceNum()&&t.getStatus().equals("Unbooked"))
                 {
                     ordering.setTableList(t);
                     Ordering savedOrdering = orderingRepository.save(ordering);
