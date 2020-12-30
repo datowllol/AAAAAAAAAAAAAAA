@@ -38,7 +38,7 @@ public class UserServiceController {
     public String register(@RequestParam(value = "login") String username,
                            @RequestParam(value = "password") String password,
                            Model model) {
-        if(userService.isUnique(username)) {
+        if(username!=null&&password!=null&&userService.isUnique(username)) {
             Admin admin = new Admin();
             admin.setLogin(username);
             admin.setPassword(password);
