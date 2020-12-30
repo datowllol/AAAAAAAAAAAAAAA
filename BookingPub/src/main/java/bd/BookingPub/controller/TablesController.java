@@ -52,10 +52,11 @@ public class TablesController {
     public String add(@RequestParam(value = "placeNum") Integer placeNum,
                       Model model
     ) {
-        TableList table = new TableList();
+        if(placeNum!=null)
+        {TableList table = new TableList();
         table.setStatus("Unbooked");
         table.setPlaceNum(placeNum);
-        tableListService.addTable(table);
+        tableListService.addTable(table);}
         return "redirect:/tableList";
     }
 
@@ -69,10 +70,12 @@ public class TablesController {
     public String delete(@RequestParam(value = "id") Integer id,
                          Model model) {
         model.addAttribute("isGODADMIN", true);
-        TableList table = tableListService.getById(id);
-        if (table.getStatus().equals("Unbooked")) {
-            tableListService.deleteSaloonById(id);
-            return "redirect:/tableList";
+        if(id!=null) {
+            TableList table = tableListService.getById(id);
+            if (table.getStatus().equals("Unbooked")) {
+                tableListService.deleteSaloonById(id);
+                return "redirect:/tableList";
+            }
         }
         return "redirect:/tableList";
     }
