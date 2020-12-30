@@ -74,9 +74,7 @@ public class TablesController {
             tableListService.deleteSaloonById(id);
             return "redirect:/tableList";
         }
-        model.addAttribute("message", "Cannot be deleted");
-        model.addAttribute("tableList", table);
-        return "tableList";
+        return "redirect:/tableList";
     }
 
 }

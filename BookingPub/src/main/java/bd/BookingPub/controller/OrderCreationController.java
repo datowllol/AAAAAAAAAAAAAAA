@@ -38,7 +38,7 @@ public class OrderCreationController {
 
                       Model model
     ) {
-        if(orderingService.addOrder(placeNum, orderExtraDetails, contact, bookedForTime)!=null)
+        if(placeNum!=null&&contact!=null&&orderingService.addOrder(placeNum, orderExtraDetails, contact, bookedForTime)!=null)
             return "success";
         else
             return "fail";

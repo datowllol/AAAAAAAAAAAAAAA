@@ -46,7 +46,8 @@ public class OrderingController {
     public String confrim(@RequestParam(value = "id") Integer id,
                          Model model) {
         model.addAttribute("isGODADMIN", true);
-        orderingService.ChangeStatusTrue(id);
+        if(id!=null)
+            orderingService.ChangeStatusTrue(id);
         return "redirect:/orderingMenu";
     }
 
@@ -61,7 +62,8 @@ public class OrderingController {
     public String delete(@RequestParam(value = "id") Integer id,
                          Model model) {
         model.addAttribute("isGODADMIN", true);
-        orderingService.deleteOrderById(id);
+        if(id!=null)
+            orderingService.deleteOrderById(id);
         return "redirect:/orderingMenu";
     }
 

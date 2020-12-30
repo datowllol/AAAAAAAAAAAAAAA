@@ -48,6 +48,6 @@ public class UserServiceController {
         model.addAttribute("isAuthenticated", false);
         model.addAttribute("isAdmin", false);
         model.addAttribute("usernameMessage", "Login must be unique");
-        return "users";
+        return "redirect:/users";
     }
 }
