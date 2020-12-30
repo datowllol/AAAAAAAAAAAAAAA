@@ -24,9 +24,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests()
                 .antMatchers("/users/**").hasAuthority("ROLE_GODADMIN")
+                .antMatchers("/tableList/**").hasAuthority("ROLE_GODADMIN")
+                .antMatchers("/orderingMenu/**").hasAuthority("ROLE_SIMPADMIN")
                 .anyRequest().permitAll()
                 .and().formLogin().permitAll()
-                .and().logout().logoutSuccessUrl("/newOrder")
+                .and().logout().logoutSuccessUrl("/newOrder/add")
                 .and().csrf().disable();
     }
 
