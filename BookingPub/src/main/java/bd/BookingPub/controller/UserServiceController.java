@@ -45,9 +45,6 @@ public class UserServiceController {
             userService.saveUser(admin);
             return "redirect:/users";
         }
-        model.addAttribute("isAuthenticated", false);
-        model.addAttribute("isAdmin", false);
-        model.addAttribute("usernameMessage", "Login must be unique");
         return "redirect:/users";
     }
 }

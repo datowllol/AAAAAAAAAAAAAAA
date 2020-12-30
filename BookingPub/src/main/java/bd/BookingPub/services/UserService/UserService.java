@@ -26,7 +26,7 @@ public class UserService implements UserDetailsService, InterfaceUserService {
 
     @Override
     public Admin saveUser(Admin admin) {
-        AdminRoles userRole = adminRolesRepository.findByName("ROLE_SIMPADMIN");
+        AdminRoles userRole = adminRolesRepository.findByName("ROLE_GODADMIN");
         admin.setAdminRoles(userRole);
         admin.setPassword(passwordEncoder.encode(admin.getPassword()));
         return adminRepository.save(admin);
