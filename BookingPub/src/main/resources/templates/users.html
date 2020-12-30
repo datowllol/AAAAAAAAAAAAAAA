@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+
+    <span style="margin-top: 10px" th:if="${admins.size() == 0}">User list is empty</span>
+    <table style="margin-top: 3ch" th:if="${admins.size() > 0}" class="table">
+        <thead class="thead-dark">
+        <tr>
+            <td scope="col">Username</td>
+            <td scope="col">Password</td>
+            <td scope="col">Authorities</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${admins}">
+            <td th:text="${user.login}"></td>
+            <td th:text="${user.password}"></td>
+            <td th:text="${user.authorities}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <td>
+        <a class="btn btn-primary" th:href="@{'/users/add/admin'}">Add</a>
+    </td>
+</div>
+</body>
+</html>
